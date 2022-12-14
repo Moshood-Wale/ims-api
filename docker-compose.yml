@@ -1,0 +1,38 @@
+version: '3.7'
+
+x-db-envs: &db-envs
+  POSTGRES_DB: my_database
+  POSTGRES_PASSWORD: password
+  POSTGRES_USER: postgres
+
+x-api-vars: &api-vars
+  ALLOWED_HOSTS: 127.0.0.1,localhost
+  DATABASE_URL: postgresql://postgres:my_password@host.docker.internal:54320/my_database
+  DEBUG: 1
+  SECRET_KEY: SOME_RANDOM_SET_OF_CHARACTERS_USED_AS_SECRET_KEY_#
+  BASE_URL: https://localhost:18000/api/v1
+
+services:
+  db:
+    image: postgres:13-alpine
+    environment:
+      <<: *db-envs
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      target: base
+    command: bin/start dev
+    ports:
+      - 18000:8000
+    environment:
+      <<: *api-vars
+    depends_on:
+      - db
+    volumes:
+      - ./tmp:/ims/tmp
+      - ./app:/ims/app
+      - ./bin/container:/ims/bin
+      - ./requirements.txt:/ims/requirements.txt

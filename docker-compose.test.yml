@@ -1,0 +1,28 @@
+version: '3.7'
+
+x-db-envs: &db-envs
+  POSTGRES_DB: my_database
+  POSTGRES_PASSWORD: password
+  POSTGRES_USER: postgres
+
+x-api-vars: &api-vars
+  ALLOWED_HOSTS: 127.0.0.1,localhost
+  DATABASE_URL: postgres://postgres:password@db:5432/my_database
+  DEBUG: 0
+  PORT: 18000
+  
+services:
+  db:
+    image: postgres:13-alpine
+    environment:
+      <<: *db-envs
+
+  api:
+    build:
+      context: .
+      target: api-prod
+    command: bin/start
+    depends_on:
+      - db
+    environment:
+      <<: *api-vars
