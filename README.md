@@ -39,4 +39,4 @@ In summary, these are the lists of commands to run in listed order, to start up 
 5. docker-compose exec api python app/manage.py makemigrations
 6. docker-compose exec api python app/manage.py migrate
 ```
-## Once the project is up and running, kindly find the url to the Swagger documentation in the urls.py file of the project(core). Attached below is an image of the Swagger documentation.
+Once the project is up and running, kindly find the url to the Swagger documentation in the urls.py file of the project(core). Attached below is an image of the Swagger documentation.
