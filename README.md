@@ -9,7 +9,6 @@
 * [PostgreSQL](https://www.postgresql.org/) : Application relational databases for development, staging and production environments
 * [Django Framework](https://www.djangoproject.com/) : Development framework used for the application
 * [Django Rest Framework](https://www.django-rest-framework.org/) : Provides API development tools for easy API development
-* [Github Actions](https://docs.github.com/en/free-pro-team@latest/actions) : Continuous Integration and Deployment
 * [Docker Engine and Docker Compose](https://www.docker.com/) : Containerization of the application and services orchestration
 
 ## Description
@@ -39,4 +38,4 @@ In summary, these are the lists of commands to run in listed order, to start up 
 5. docker-compose exec api python app/manage.py makemigrations
 6. docker-compose exec api python app/manage.py migrate
 ```
-Once the project is up and running, kindly find the url to the Swagger documentation in the urls.py file of the project(core). Attached below is an image of the Swagger documentation.
+Once the project is up and running, kindly find the url to the Swagger documentation in the urls.py file of the project(core).
