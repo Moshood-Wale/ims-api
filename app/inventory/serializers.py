@@ -18,7 +18,8 @@ class ProductInventorySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = ProductInventory
-        fields = "__all__"
+        fields = ("name", "default_quantity", "current_quantity", "cost_price", "selling_price", 
+                    "minimum_stock_quantity", "labels", "category", "low_quantity", "created_by",)
         extra_kwargs = {
             "id": {"read_only": True}
         }

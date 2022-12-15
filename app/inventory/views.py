@@ -30,9 +30,6 @@ class ProductInventoryViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
     ]
     permission_classes = [IsAuthenticated]
-    parser_classes = [
-        MultiPartParser,
-    ]
     search_fields = [
         "name",
         "cost_price",

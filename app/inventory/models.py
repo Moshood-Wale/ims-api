@@ -35,7 +35,7 @@ class ProductInventory(Base):
     minimum_stock_quantity = models.IntegerField(
         default=0, verbose_name="minimum_stock_quantity", blank=True, null=True
     )
-    labels = models.ManyToManyField('Label')
+    labels = models.ManyToManyField(Label)
     category = models.CharField(max_length=255)
     low_quantity = models.BooleanField(default=False)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="product_owner")
